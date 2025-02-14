@@ -1,0 +1,25 @@
+version: '3.9'
+
+services:
+  db:
+    container_name: datafast
+    image: postgres
+    restart: always
+    
+    ports:
+      - 5432:5432
+    env_file:
+      - ".env"
+
+  fastbot:
+    container_name: fastbot
+    build:
+      context: .
+    command: python main.py
+    restart: always
+
+    ports:
+      -8000:8000
+
+    env_file:
+      - ".env"
