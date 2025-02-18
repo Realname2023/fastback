@@ -13,19 +13,6 @@ ADMIN_KEY = str(getenv('ADMIN_KEY'))
 
 url_webhook = str(getenv("URL_WEBHOOK"))
 
-about_company = None
-about_products = None
-
-
-with open('company.txt', 'r', encoding='utf-8') as file:
-    lines = file.readlines()
-    about_company = ''.join(lines)
-
-
-with open('about_products.txt', 'r', encoding='utf-8') as file:
-    lines = file.readlines()
-    about_products = ''.join(lines)
-
 method_deal_add = 'crm.deal.add'
 method_contact_update = 'crm.contact.update'
 method_products_set = 'crm.deal.productrows.set'
