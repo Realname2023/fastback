@@ -68,15 +68,12 @@ admin.add_view(CartAdmin)
 admin.add_view(OrderAdmin)
 
 
-# @app.post("/webhook")
-# async def webhook(request: Request) -> None:
-#     logging.info("Received webhook request")
-#     # update = await request.json()  # Получаем данные из запроса
-#     # # Обрабатываем обновление через диспетчер (dp) и передаем в бот
-#     # dp.update.middleware(DataBaseSession(session_pool=bot_session_maker))
-#     update = Update.model_validate(await request.json(), context={"bot": bot})
-#     await dp.feed_update(bot, update)
-#     logging.info("Update processed")
+@app.post("/webhook")
+async def webhook(request: Request) -> None:
+    logging.info("Received webhook request")
+    update = Update.model_validate(await request.json(), context={"bot": bot})
+    await dp.feed_update(bot, update)
+    logging.info("Update processed")
 
 
 origins = ['http://localhost:5173', 
@@ -93,4 +90,4 @@ app.add_middleware(
 
 
 if __name__ == '__main__':
-    uvicorn.run('main:app', host='0.0.0.0', reload=True)
+    uvicorn.run('main:app', reload=True)
