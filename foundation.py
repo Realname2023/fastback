@@ -5,10 +5,10 @@ load_dotenv(find_dotenv())
 
 TOKEN = str(getenv("TOKEN"))
 
-# DATABASE_URL = f"postgresql+asyncpg://{getenv('POSTGRES_USER')}:{getenv('POSTGRES_PASSWORD')}@db:5432/{getenv('POSTGRES_DB')}"
+DATABASE_URL = f"postgresql+asyncpg://{getenv('POSTGRES_USER')}:{getenv('POSTGRES_PASSWORD')}@db:5432/{getenv('POSTGRES_DB')}"
 # DATABASE_URL = 'postgresql+asyncpg://home:noproblem@localhost:5432/fastdb'
 
-DATABASE_URL = str(getenv('DB_URL'))
+# DATABASE_URL = str(getenv('DB_URL'))
 ADMIN_KEY = str(getenv('ADMIN_KEY'))
 
 url_webhook = str(getenv("URL_WEBHOOK"))
