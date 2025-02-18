@@ -1,7 +1,5 @@
 import uvicorn
-import asyncio
 import logging
-import sys
 from aiogram.types.update import Update
 from contextlib import asynccontextmanager
 from fastapi import FastAPI, Request
@@ -90,4 +88,4 @@ app.add_middleware(
 
 
 if __name__ == '__main__':
-    uvicorn.run('main:app', host='0.0.0.0', reload=True)
+    uvicorn.run('main:app', reload=True)
